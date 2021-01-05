@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(path = "/employee", produces = "application/json")
+@RequestMapping(path = "/employees", produces = "application/json")
 public class EmployeeController {
 
 	private final EmployeeRepository employeeRepository;
@@ -18,7 +18,7 @@ public class EmployeeController {
 		this.employeeRepository = employeeRepository;
 	}
 
-	@GetMapping("/list")
+	@GetMapping
 	public List<Employee> getEmployees(){
 		return (List<Employee>) employeeRepository.findAll();
 	}
