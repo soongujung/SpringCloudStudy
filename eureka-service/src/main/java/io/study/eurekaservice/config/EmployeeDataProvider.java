@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class EmployeeDataProvider {
 
-	@Bean
+	@Bean(name = "employeeDataLoader")
 	public CommandLineRunner dataLoader(EmployeeRepository repository){
 		return args -> {
 			repository.save(new Employee("gosgjung", "꾸준함의대가", 99L));
