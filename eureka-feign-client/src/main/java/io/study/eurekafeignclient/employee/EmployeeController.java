@@ -1,22 +1,25 @@
 package io.study.eurekafeignclient.employee;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping("/employee")
+@RestController
+@RequestMapping("/employees")
 public class EmployeeController {
 
-	@Autowired
-	private final EmployeeClient client;
+	private final EmployeeFeignClient client;
 
-	public EmployeeController(EmployeeClient client){
+	public EmployeeController(EmployeeFeignClient client){
 		this.client = client;
 	}
 
-	@ResponseBody
+	@GetMapping
+	public EmployeeDto getEmployeeAll(){
+		return client.getEmployeeAll();
+	}
+
+	@GetMapping("/{id}")
 	public EmployeeDto getEmployeeById(Long id){
 		return client.getEmployee(id);
 	}
