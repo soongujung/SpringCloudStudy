@@ -1,0 +1,4 @@
+# 잠시 테스트용으로 급하게 해보려 작성한 파일
+spring.application.name=ingredient-client
+eureka.instance.hostname=localhost
+eureka.client.service-url.defaultZone=http://${eureka.instance.hostname}:8761/eureka
