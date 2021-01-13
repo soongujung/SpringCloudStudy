@@ -1,5 +1,7 @@
 package io.study.eurekafeignclient.employee;
 
+import io.study.eurekafeignclient.config.IngredientFeignClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,9 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/employees")
 public class EmployeeController {
 
-	private final EmployeeFeignClient client;
+	@Autowired
+	private IngredientFeignClient client;
 
-	public EmployeeController(EmployeeFeignClient client){
+	public EmployeeController(IngredientFeignClient client){
 		this.client = client;
 	}
 
