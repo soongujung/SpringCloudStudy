@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: resilience4j-ingredient-client
+resilience4j.
+resilience4j:
+  circuitbreaker:
+    instances:
